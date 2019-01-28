@@ -9,8 +9,9 @@ const routes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: '', loadChildren: './home/home.module#HomePageModule' },
 //, canActivate: [AuthTestGuard]
-
-
+  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'impressum', loadChildren: './impressum/impressum.module#ImpressumPageModule' },
+  { path: 'test', loadChildren: './test/test.module#TestPageModule' }
 
 ];
 @NgModule({
