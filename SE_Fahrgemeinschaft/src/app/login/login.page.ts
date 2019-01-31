@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/auth-service.service' ;
+
+
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInPage implements OnInit {
 
-  constructor() { }
+    todo = {
+        email: '',
+        password: ''
+    };
+
+  constructor(
+    private myService: AuthServiceService //<--- Fehler!
+
+  ) {
+
+
+  };
 
   ngOnInit() {
-  }
+  };
 
+  logIn(){
+      console.log(this.todo.email)
+  //  this.myService.doRegister(this.todo.email, this.todo.password) //<--- Kann ich deshalb nicht machen
+  };
 }

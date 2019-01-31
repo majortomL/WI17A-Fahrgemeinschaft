@@ -5,5 +5,22 @@
 </ion-header>
 
 <ion-content padding>
-<button>Klick mich</button>
+
+//<button>Klick mich</button>
+
+    <form (ngSubmit)="logIn()">
+
+        <ion-item>
+            <ion-label>E-Mail: </ion-label>
+            <ion-input type="text" [(ngModel)]="todo.email" name="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Password: </ion-label>
+            <ion-input type="password" [(ngModel)]="todo.password" name="password"></ion-input>
+        </ion-item>
+
+        <button ion-button type="submit" block>LogIn</button>
+    </form>
+
 </ion-content>
