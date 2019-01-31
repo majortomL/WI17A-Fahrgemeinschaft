@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LogInPage } from './log-in.page';
+import { LogInPage } from './login.page';
 
 const routes: Routes = [
   {
