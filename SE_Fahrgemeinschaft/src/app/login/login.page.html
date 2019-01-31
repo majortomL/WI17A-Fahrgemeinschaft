@@ -6,21 +6,21 @@
 
 <ion-content padding>
 
-//<button>Klick mich</button>
-
     <form (ngSubmit)="logIn()">
 
         <ion-item>
             <ion-label>E-Mail: </ion-label>
-            <ion-input type="text" [(ngModel)]="todo.email" name="email"></ion-input>
+            <ion-input type="text" [(ngModel)]="username" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label>Password: </ion-label>
-            <ion-input type="password" [(ngModel)]="todo.password" name="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
         </ion-item>
 
         <button ion-button type="submit" block>LogIn</button>
     </form>
+
+
 
 </ion-content>

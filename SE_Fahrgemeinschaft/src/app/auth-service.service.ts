@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth} from "@angular/fire/auth";
-import * as firebase from 'firebase/app';
-
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +7,18 @@ import * as firebase from 'firebase/app';
 export class AuthServiceService {
 
   constructor(
-      public afAuth: AngularFireAuth
-  ) {
+      private afAuth: AngularFireAuth,
+  ){
 
   }
+  async logIn(username, password){
 
-    doRegister(email, password){
-        return new Promise<any>((resolve, reject) => {
-            firebase.auth().signInWithEmailAndPassword(email, password)
-                   .then(res => {
-                    resolve(res);
-                }, err => reject(err))
-        })
-    }
+      try {
+          const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
+      } catch (err){
+          console.log(err)
+      }
+  }
+
 
 }
