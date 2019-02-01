@@ -25,4 +25,5 @@ export class LogInPage implements OnInit {
         this.myService.logIn(this.username, this.password)
     }
 
+
 }

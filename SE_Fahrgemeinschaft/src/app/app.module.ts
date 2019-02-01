@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import {AngularFireModule} from "@angular/fire";
 //firebase Services
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
+//Testing HTTP and JSON
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,11 +27,13 @@ import { environment} from "../environments/environment";
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule,
+  imports: [
+      BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
       AngularFireModule.initializeApp(environment.fire),
       AngularFireAuthModule,
+      HttpClientModule,
 
   ],
   providers: [

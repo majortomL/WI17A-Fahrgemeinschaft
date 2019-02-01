@@ -1,0 +1,49 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form (ngSubmit)="registrate()">
+
+        <ion-item >
+            <ion-label>Name: </ion-label>
+            <ion-input type="text" [(ngModel)]="name" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Vorname: </ion-label>
+            <ion-input type="text" [(ngModel)]="firstname" name="first_name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Geburtsdatum: </ion-label>
+            <ion-input type="date" [(ngModel)]="birthdate" name="birthdate"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Telefonnummer: </ion-label>
+            <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonnumber"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>E-Mail: </ion-label>
+            <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>E-Mail bestätigen: </ion-label>
+            <ion-input type="email" [(ngModel)]="emailConfirmed" name="emailConfirmed"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Password: </ion-label>
+            <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Password bestätigen: </ion-label>
+            <ion-input type="password" [(ngModel)]="passwordConfirmed" name="passwordConfirmed"></ion-input>
+        </ion-item>
+
+        <ion-button type="submit" block>Registrieren</ion-button>
+    </form>
+
+
+</ion-content>
