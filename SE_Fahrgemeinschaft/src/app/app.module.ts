@@ -15,15 +15,12 @@ import {AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Testing HTTP and JSON
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 //for Firebase Config
 import { environment} from "../environments/environment";
-//for ServicesProvider
-//import { AuthServiceService } from './auth-service.service' ;
-
-
+//firebase realtimedatabase
+import { AngularFireDatabaseModule} from "@angular/fire/database";
+//for Provider auth Guard
+import { AuthTestGuard }from './guards/authtest.guard'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -33,12 +30,14 @@ import { environment} from "../environments/environment";
       AppRoutingModule,
       AngularFireModule.initializeApp(environment.fire),
       AngularFireAuthModule,
+      AngularFireDatabaseModule,
       HttpClientModule,
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+      AuthTestGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
