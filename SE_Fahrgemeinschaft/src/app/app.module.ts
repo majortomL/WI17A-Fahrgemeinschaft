@@ -16,12 +16,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 //Testing HTTP and JSON
 import { HttpClientModule } from '@angular/common/http';
 
-
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 //for Firebase Config
 import { environment} from "../environments/environment";
 //for ServicesProvider
 //import { AuthServiceService } from './auth-service.service' ;
+
+
 
 
 @NgModule({
@@ -33,6 +35,10 @@ import { environment} from "../environments/environment";
       AppRoutingModule,
       AngularFireModule.initializeApp(environment.fire),
       AngularFireAuthModule,
+
+      AngularFireDatabaseModule,
+      AngularFireModule,
+
       HttpClientModule,
 
   ],
