@@ -1,31 +1,34 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import {Injectable} from '@angular/core';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {AuthServiceService} from "../services/auth.service";
+
+import {MapOperator} from "rxjs/internal/operators/map";
+import {map} from "rxjs/operators";
+import {of} from "rxjs/index";
+
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthTestGuard implements CanActivate {
 
     constructor(private router: Router,
-    public jwtHelper: JwtHelperService
-){
+                private authService: AuthServiceService) {
 
     }
 
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+    canActivate(next: ActivatedRouteSnapshot,
+                state: RouterStateSnapshot): boolean {
 
-        const loggedIn = true; //Test whether User is logged In
+        if (this.authService.userID) {
+            return true;
+        }
 
-      if (!loggedIn) {
-          this.router.navigate(['/']);
-      }
+        console.log("Access denied")
+        this.router.navigate(['/login']);
+        return false
 
-      return loggedIn;
-
-  }
+    }
 }
