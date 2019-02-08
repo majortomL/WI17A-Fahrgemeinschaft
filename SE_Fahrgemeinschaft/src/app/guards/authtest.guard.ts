@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {AuthServiceService} from "../services/auth.service";
 
 import {MapOperator} from "rxjs/internal/operators/map";
-import { map } from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {of} from "rxjs/index";
 
 @Injectable({
@@ -14,7 +14,7 @@ import {of} from "rxjs/index";
 export class AuthTestGuard implements CanActivate {
 
     constructor(private router: Router,
-                private authService: AuthServiceService ) {
+                private authService: AuthServiceService) {
 
     }
 
@@ -22,9 +22,9 @@ export class AuthTestGuard implements CanActivate {
     canActivate(next: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): boolean {
 
-        if(this.authService.userID){
-            console.log("Hier im Guard: " + this.authService.userID)
-            return true;}
+        if (this.authService.userID) {
+            return true;
+        }
 
         console.log("Access denied")
         this.router.navigate(['/login']);

@@ -55,7 +55,7 @@ export class AuthServiceService {
     }
 
     checkLoggedIn() {
-       console.log(this.afAuth.auth.currentUser.uid);
+       //console.log(this.afAuth.auth.currentUser.uid); //works both
        console.log(this.userID);
 
     }
