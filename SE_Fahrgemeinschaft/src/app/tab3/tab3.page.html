@@ -3,13 +3,29 @@
         <ion-title>Map</ion-title>
     </ion-toolbar>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </ion-header>
 
 <ion-content>
-    <div id="map" style="width: 100%; height: 100%">
+    <div id="map" style="width: 100%; height: 90%">
 
     </div>
+
+    <script>
+        function route() {
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(57.74, 11.94),
+                    L.latLng(57.6792, 11.949)
+                ]
+            }).addTo(map);
+        }
+    </script>
+    <button (click)="route()">Route berechnen!</button>
 
 
 </ion-content>
