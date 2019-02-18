@@ -20,14 +20,14 @@
                 <ion-col>
                     <ion-item>
                         <ion-label>Name:</ion-label>
-                        <ion-input type="text"  [(ngModel)]="user.name" name="email"></ion-input>
+                        <ion-input type="text" [required]="true" [(ngModel)]="user.name" name="email"></ion-input>
                     </ion-item>
 
+                </ion-col>
                 <ion-col>
-                    <ion-col>
                     <ion-item>
                         <ion-label>Vorname:</ion-label>
-                        <ion-input type="text" [(ngModel)]="user.firstname" name="firstName"></ion-input>
+                        <ion-input type="text" [required]="true" [(ngModel)]="user.firstname" name="firstName"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -48,7 +48,8 @@
             <ion-row>
                 <ion-item>
                     <ion-label>E-Mail:</ion-label>
-                    <ion-input type="email" [(ngModel)]="user.email" name="email" placeholder="test@test.com"></ion-input>
+                    <ion-input type="email" [(ngModel)]="user.email" name="email"
+                               placeholder="test@test.com"></ion-input>
                 </ion-item>
             </ion-row>
             <ion-row>
@@ -60,14 +61,15 @@
             <ion-row>
                 <ion-item>
                     <ion-label>Password:</ion-label>
-                    <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
-                    <ion-icon name="information-circle-outline"  (click)="showPasswordInfo()"></ion-icon>
+                    <ion-input [required]="true" type="password" [(ngModel)]="user.password" name="password"></ion-input>
+                    <ion-icon name="information-circle-outline" (click)="showPasswordInfo()"></ion-icon>
                 </ion-item>
             </ion-row>
             <ion-row>
                 <ion-item>
                     <ion-label>Password bestätigen:</ion-label>
-                    <ion-input type="password" [(ngModel)]="user.passwordConfirmed" name="passwordConfirmed"></ion-input>
+                    <ion-input [required]="true" type="password" [(ngModel)]="user.passwordConfirmed"
+                               name="passwordConfirmed"></ion-input>
                 </ion-item>
             </ion-row>
             <ion-row>
@@ -79,6 +81,7 @@
         </ion-grid>
 
         <ion-button type="submit" block>Registrieren</ion-button>
+
     </form>
 
 

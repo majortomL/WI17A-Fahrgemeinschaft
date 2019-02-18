@@ -36,9 +36,9 @@ export class RegistrationPage implements OnInit {
 
         console.log(this.user);
         //provide more Information in JSON above
-     /*   if (this.checkRegistrationSyntax()) {
-            this.myService.registrate(this.user.email, this.user.password);
-        }*/
+        if (this.checkRegistrationSyntax()) {
+            this.myService.registrate(this.user, this.user.password);
+        }
 
     }
 
@@ -59,6 +59,19 @@ export class RegistrationPage implements OnInit {
 
         const toast = await this.toastCtrl.create({
             message: 'Passwort muss mind. 6 Ziffern lang sein',
+            duration: 8000,
+            showCloseButton: true,
+            position: "bottom",
+            closeButtonText: 'Done'
+        });
+        toast.present(); //is working although error
+
+    }
+
+    async showErrorToast(message: string) {
+
+        const toast = await this.toastCtrl.create({
+            message: message,
             duration: 8000,
             showCloseButton: true,
             position: "bottom",
