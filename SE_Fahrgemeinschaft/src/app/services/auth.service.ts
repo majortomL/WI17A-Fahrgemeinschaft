@@ -11,15 +11,15 @@ import {Observable} from "rxjs/index";
 })
 export class AuthServiceService {
 
-    userID: string = null;
+    static userID: string = null;
 
     constructor(private afAuth: AngularFireAuth,
                 private db: RTDBService,
                 private router: Router,) {
 
         afAuth.authState.subscribe((user) => {
-            if(user){this.userID = user.uid} else {
-                this.userID = null;
+            if(user){AuthServiceService.userID = user.uid} else {
+                AuthServiceService.userID = null;
             }
             })
     };
@@ -29,7 +29,7 @@ export class AuthServiceService {
             const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
             if(res.user){
                 console.log(res.user.getIdToken());
-                this.router.navigate(['/home'])
+                this.router.navigate(['/'])
             }
         } catch (err) {
             console.log(err)
@@ -52,11 +52,12 @@ export class AuthServiceService {
     }
     logOut() {
         this.afAuth.auth.signOut();
+        this.router.navigate(['/login'])
     }
 
     checkLoggedIn() {
        //console.log(this.afAuth.auth.currentUser.uid); //works both
-       console.log(this.userID);
+       console.log(AuthServiceService.userID);
 
     }
 
