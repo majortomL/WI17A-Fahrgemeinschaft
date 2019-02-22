@@ -6,7 +6,7 @@
 
 <ion-content padding>
 
-  <!--  <form (ngSubmit)="registrate()">-->
+
         <ion-grid>
             <ion-item-divider>
                 <ion-label>
@@ -17,28 +17,28 @@
                 <ion-col>
                     <ion-item>
                         <ion-label>Name:</ion-label>
-                        <ion-input type="text" [(ngModel)]="name" name="email"></ion-input>
+                        <ion-input type="text" [(ngModel)]="user.name" name="user.email"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col>
                     <ion-item>
                         <ion-label>Vorname:</ion-label>
-                        <ion-input type="text" [(ngModel)]="firstname" name="firstName"></ion-input>
+                        <ion-input type="text" [(ngModel)]="user.firstName" name="user.firstName"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
         </ion-grid>
         <ion-item>
             <ion-label>Geburtsdatum:</ion-label>
-            <ion-input type="date" [(ngModel)]="birthdate" name="birthdate"></ion-input>
+            <ion-input type="date" [(ngModel)]="user.birthdate" name="user.birthdate"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>E-Mail:</ion-label>
-            <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+            <ion-input type="email" [(ngModel)]="user.email" name="user.email"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>E-Mail bestätigen:</ion-label>
-            <ion-input type="email" [(ngModel)]="emailConfirmed" name="emailConfirmed"></ion-input>
+            <ion-input type="email" [(ngModel)]="user.emailConfirmed" name="user.emailConfirmed"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Password:</ion-label>
@@ -60,7 +60,7 @@
         <div *ngIf="showOptionals">
             <ion-item>
                 <ion-label>Telefonnummer:</ion-label>
-                <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonNumber"></ion-input>
+                <ion-input type="number" [(ngModel)]="user.telefonNumber" name="user.telefonNumber"></ion-input>
             </ion-item>
 
             <ion-item>
@@ -74,32 +74,26 @@
 
             <ion-item>
                 <ion-label>Stadt:</ion-label>
-                <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonNumber"></ion-input>
+                <ion-input type="number" [(ngModel)]="user.city" name="user.city"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>PLZ:</ion-label>
-                <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonNumber"></ion-input>
+                <ion-input type="number" [(ngModel)]="user.plz" name="user.plz"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Straße:</ion-label>
-                <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonNumber"></ion-input>
+                <ion-input type="number" [(ngModel)]="user.street" name="user.street"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Hausnummer:</ion-label>
-                <ion-input type="number" [(ngModel)]="telefonnumber" name="telefonNumber"></ion-input>
+                <ion-input type="number" [(ngModel)]="user.houseNumber" name="user.houseNumber"></ion-input>
             </ion-item>
         </div>
 
         <ion-item>
             <ion-label>AGBs bestätigen:</ion-label>
-            <ion-checkbox slot="end" [(ngModel)]="agbIsChecked" name="agb"></ion-checkbox>
+            <ion-checkbox slot="end" [(ngModel)]="user.agbIsCheckedb" name="user.agbIsCheckedb"></ion-checkbox>
         </ion-item>
-
-<!--        <ion-button type="submit" block>Registrieren</ion-button>
-        <ion-button (click)="redirectLogIn()">Zum LogIn</ion-button>
-    </form>-->
-
-
 </ion-content>
 
 <ion-footer>

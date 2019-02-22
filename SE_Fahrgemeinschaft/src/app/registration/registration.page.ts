@@ -24,6 +24,23 @@ export class RegistrationPage implements OnInit {
     passwordConfirmed: string;
 //check Types
 
+    user = {
+        name: '',
+        firstname: '',
+        birthdate: '',
+        email: '',
+        emailConfirmed: '',
+  //      password: '',
+  //      passwordConfirmed: '',
+        telefonnumber: '',
+        city: '',
+        plz: '',
+        street: '',
+        houseNumber: '',
+        agbIsChecked: false,
+    };
+
+
   constructor(
       private myService: AuthServiceService,
       private router: Router,
@@ -39,19 +56,15 @@ export class RegistrationPage implements OnInit {
   * Icons und Checkbox auf eine Linie
   * AGBs anzeigen
   * Optionals nur mitsenden falls eingegeben
+  * Land aus Selection auslesen
+  * plz in zip?
   * */
 
 
   registrate(){
-   var  user = {
-            firstName: this.firstname,
-            name: this.name,
-            birthdate: this.birthdate,
-           // telefon: this.telefonnumber, //optional
-            email: this.email,
-   }
+
     //provide more Information in JSON above
-   this.myService.registrate( user ,  this.password );
+   this.myService.registrate( this.user ,  this.password );
   }
 
     redirectLogIn(){
