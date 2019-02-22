@@ -1,0 +1,13 @@
+<form [formGroup]="myForm">
+    Vaue: {{ myForm.value | json }}
+
+    <ion-item>
+        <input matInput placeholder="email" formControlName="email">
+    </ion-item>
+    <ion-item>
+        <input matInput placeholder="message" formControlName="message">
+    </ion-item>
+
+
+
+</form>
