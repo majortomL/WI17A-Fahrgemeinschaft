@@ -5,7 +5,6 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'impressum', loadChildren: './impressum/impressum.module#ImpressumPageModule' },
   { path: 'openrouteservice', loadChildren: './openrouteservice/openrouteservice.module#OpenrouteservicePageModule' },
-  { path: 'map', loadChildren: './map/map.module#MapPageModule' },
 
 
 ];

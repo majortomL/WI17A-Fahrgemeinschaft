@@ -4,8 +4,7 @@ import leaflet from 'leaflet';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import 'leaflet-control-geocoder';
-import {Geolocation} from "@ionic-native/geolocation";
-import {ɵangular_packages_router_router_c} from "@angular/router";
+
 
 var start: any;
 var end: any;
@@ -36,18 +35,24 @@ export class Tab3Page implements OnInit {
         leaflet.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
         }).addTo(this.map);
+        var marker = L.marker([
+            49.3539844,
+            9.1513016898797
+        ]);
+        marker.addTo(this.map);
     }
 
     route() {
-        console.log(start, end);
-        L.Routing.control(
+        let route = L.Routing.control(
             {
                 waypoints: [
                     L.latLng(start),
-                    L.latLng(end),
+                    L.latLng(49.3539844, 9.1513016898797),
                 ],
                 router: L.Routing.mapbox('pk.eyJ1IjoibWFqb3J0b21sIiwiYSI6ImNqc2E1bHlzZzFud3A0M3JuYTU1MnIxcHMifQ.RJQyiR5__e25Vd-HkhOfsg')
             }).addTo(this.map).hide();
+        // Nicht funktional!
+        // L.getPlan();
     }
 
     geoCoder() {
@@ -60,17 +65,15 @@ export class Tab3Page implements OnInit {
             start = e.geocode.center;
             console.log(start);
         });
-        let geoCoderB = new L.Control.geocoder({
-            collapsed: false,
-            position: "topleft",
-            placeholder: "Ziel..."
-        }).addTo(this.map);
-        geoCoderB.on('markgeocode', function (f) {
-            end = f.geocode.center;
-            console.log(end);
-        })
-    }
-
-    returnRes(a) {
+        // GeoCoder für variables Routenziel
+        // let geoCoderB = new L.Control.geocoder({
+        //     collapsed: false,
+        //     position: "topleft",
+        //     placeholder: "Ziel..."
+        // }).addTo(this.map);
+        // geoCoderB.on('markgeocode', function (f) {
+        //     end = f.geocode.center;
+        //     console.log(end);
+        // })
     }
 }
