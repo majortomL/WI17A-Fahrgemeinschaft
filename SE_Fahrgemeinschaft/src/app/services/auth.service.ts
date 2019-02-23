@@ -4,22 +4,27 @@ import {RTDBService} from './rtdb.service'
 import {Router} from "@angular/router";
 import * as firebase from "firebase/app"
 import {Observable} from "rxjs/index";
-
+import { ToastController} from "@ionic/angular";
+import { PopoverController} from "@ionic/angular";
+import { AgbComponent} from '../component/agb/agb.component'
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthServiceService {
 
-    userID: string = null;
+    static userID: string = null;
 
     constructor(private afAuth: AngularFireAuth,
                 private db: RTDBService,
-                private router: Router,) {
+                private router: Router,
+                private toast: ToastController,
+                private popOver: PopoverController,
+                ) {
 
         afAuth.authState.subscribe((user) => {
-            if(user){this.userID = user.uid} else {
-                this.userID = null;
+            if(user){AuthServiceService.userID = user.uid} else {
+                AuthServiceService.userID = null;
             }
             })
     };
@@ -29,7 +34,7 @@ export class AuthServiceService {
             const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
             if(res.user){
                 console.log(res.user.getIdToken());
-                this.router.navigate(['/home'])
+                this.router.navigate(['/'])
             }
         } catch (err) {
             console.log(err)
@@ -50,14 +55,32 @@ export class AuthServiceService {
             console.log(err)
         }
     }
-    logOut() {
+    async logOut() {
         this.afAuth.auth.signOut();
+        this.router.navigate(['/login'])
+
+        const toast = await this.toast.create({
+            message: 'Sie wurden ausgeloggt',
+            duration: 8000,
+            showCloseButton: true,
+            position: "bottom",
+            closeButtonText: 'Done'
+        });
+        toast.present(); //is working although error
     }
 
     checkLoggedIn() {
        //console.log(this.afAuth.auth.currentUser.uid); //works both
-       console.log(this.userID);
+       console.log(AuthServiceService.userID);
 
+    }
+    async presentAgb() {
+        const popover = await this.popOver.create({
+            component: AgbComponent,
+           // event: ev,
+            translucent: true
+        });
+        return await popover.present();
     }
 
 }

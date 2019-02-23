@@ -13,6 +13,7 @@ import {of} from "rxjs/index";
 })
 export class AuthTestGuard implements CanActivate {
 
+
     constructor(private router: Router,
                 private authService: AuthServiceService) {
 
@@ -22,7 +23,7 @@ export class AuthTestGuard implements CanActivate {
     canActivate(next: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): boolean {
 
-        if (this.authService.userID) {
+        if (AuthServiceService.userID) {
             return true;
         }
 

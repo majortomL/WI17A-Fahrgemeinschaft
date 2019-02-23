@@ -34,6 +34,9 @@ export class LogInPage implements OnInit {
     logOut(){
        this.myService.logOut();
     }
+    redirectRegistration(){
+       this.router.navigate(['/registration'])
+    }
 
 
 }
