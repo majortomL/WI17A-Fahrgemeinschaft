@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CreateRide</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="CreateRide()">
+
+    <ion-item>
+      <ion-label>Abholpunkt:</ion-label>
+      <ion-input type="text" [(ngModel)]="AP" name="Abholpunkt"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Anzahl der Plätze:</ion-label>
+      <ion-input type="text" [(ngModel)]="AZ" name="Anzahl"></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" block>Create Ride</button>
+  </form>
+
+</ion-content>
