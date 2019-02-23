@@ -20,10 +20,11 @@ import { environment} from "../environments/environment";
 //firebase realtimedatabase
 import { AngularFireDatabaseModule} from "@angular/fire/database";
 //for Provider auth Guard
-import { AuthTestGuard }from './guards/authtest.guard'
+import { AuthTestGuard }from './guards/authtest.guard';
+import { AgbComponent } from './component/agb/agb.component'
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, AgbComponent],
+  entryComponents: [AgbComponent],
   imports: [
       BrowserModule,
       IonicModule.forRoot(),

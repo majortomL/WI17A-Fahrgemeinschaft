@@ -7,98 +7,108 @@
 <ion-content padding>
 
 
-        <ion-grid>
-            <ion-item-divider>
-                <ion-label>
-                    Verpflichtend
-                </ion-label>
-            </ion-item-divider>
-            <ion-row>
-                <ion-col>
-                    <ion-item>
-                        <ion-label>Name:</ion-label>
-                        <ion-input type="text" [(ngModel)]="user.name" name="user.email"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col>
-                    <ion-item>
-                        <ion-label>Vorname:</ion-label>
-                        <ion-input type="text" [(ngModel)]="user.firstName" name="user.firstName"></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-        <ion-item>
-            <ion-label>Geburtsdatum:</ion-label>
-            <ion-input type="date" [(ngModel)]="user.birthdate" name="user.birthdate"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>E-Mail:</ion-label>
-            <ion-input type="email" [(ngModel)]="user.email" name="user.email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>E-Mail bestätigen:</ion-label>
-            <ion-input type="email" [(ngModel)]="user.emailConfirmed" name="user.emailConfirmed"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>Password:</ion-label>
-            <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
-            <ion-icon name="information-circle-outline" (click)="showPasswordInfo()" slot="end"></ion-icon>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>Password bestätigen:</ion-label>
-            <ion-input type="password" [(ngModel)]="passwordConfirmed" name="passwordConfirmed"></ion-input>
-        </ion-item>
+    <ion-grid>
         <ion-item-divider>
             <ion-label>
-                Optional
+                Verpflichtend
             </ion-label>
-            <ion-icon name="information-circle-outline" (click)="showOptionalInfo()" slot="end"></ion-icon>
-            <ion-icon name="arrow-dropdown" (click)="dropDownOptionals()"></ion-icon>
         </ion-item-divider>
-        <div *ngIf="showOptionals">
-            <ion-item>
-                <ion-label>Telefonnummer:</ion-label>
-                <ion-input type="number" [(ngModel)]="user.telefonNumber" name="user.telefonNumber"></ion-input>
-            </ion-item>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Name:</ion-label>
+                    <ion-input type="text" [(ngModel)]="user.name" name="user.email"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Vorname:</ion-label>
+                    <ion-input type="text" [(ngModel)]="user.firstName" name="user.firstName"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-item>
+        <ion-label>Geburtsdatum:</ion-label>
+        <ion-input type="date" [(ngModel)]="user.birthdate" name="user.birthdate"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>E-Mail:</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" name="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>E-Mail bestätigen:</ion-label>
+        <ion-input type="email" [(ngModel)]="user.emailConfirmed" name="user.emailConfirmed"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Password:</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        <ion-icon name="information-circle-outline" (click)="showPasswordInfo()" slot="end"></ion-icon>
+    </ion-item>
 
-            <ion-item>
-                <ion-label>Land:</ion-label>
-                <ion-select placeholder="Select One">
-                    <ion-select-option value="Deutschland">Deutschland</ion-select-option>
-                    <ion-select-option value="Niederlande">Niederlande</ion-select-option>
-                    <ion-select-option value="Frankreich">Frankreich</ion-select-option>
-                </ion-select>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Stadt:</ion-label>
-                <ion-input type="number" [(ngModel)]="user.city" name="user.city"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label>PLZ:</ion-label>
-                <ion-input type="number" [(ngModel)]="user.plz" name="user.plz"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label>Straße:</ion-label>
-                <ion-input type="number" [(ngModel)]="user.street" name="user.street"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label>Hausnummer:</ion-label>
-                <ion-input type="number" [(ngModel)]="user.houseNumber" name="user.houseNumber"></ion-input>
-            </ion-item>
-        </div>
+    <ion-item>
+        <ion-label>Password bestätigen:</ion-label>
+        <ion-input type="password" [(ngModel)]="passwordConfirmed" name="passwordConfirmed"></ion-input>
+    </ion-item>
+    <ion-item-divider>
+        <ion-label>
+            Optional
+        </ion-label>
+        <ion-icon name="information-circle-outline" (click)="showOptionalInfo()" slot="end"></ion-icon>
+        <ion-icon name="arrow-dropdown" (click)="dropDownOptionals()"></ion-icon>
+    </ion-item-divider>
+    <div *ngIf="showOptionals">
+        <ion-item>
+            <ion-label>Telefonnummer:</ion-label>
+            <ion-input type="number" [(ngModel)]="user.telefonNumber" name="user.telefonNumber"></ion-input>
+        </ion-item>
 
         <ion-item>
-            <ion-label>AGBs bestätigen:</ion-label>
-            <ion-checkbox slot="end" [(ngModel)]="user.agbIsCheckedb" name="user.agbIsCheckedb"></ion-checkbox>
+            <ion-label>Land:</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="user.country">
+                <ion-select-option value="Deutschland">Deutschland</ion-select-option>
+                <ion-select-option value="Niederlande">Niederlande</ion-select-option>
+                <ion-select-option value="Frankreich">Frankreich</ion-select-option>
+            </ion-select>
         </ion-item>
+
+        <ion-item>
+            <ion-label>Stadt:</ion-label>
+            <ion-input type="number" [(ngModel)]="user.city" name="user.city"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>PLZ:</ion-label>
+            <ion-input type="number" [(ngModel)]="user.zipCode" name="user.zipCode"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Straße:</ion-label>
+            <ion-input type="number" [(ngModel)]="user.street" name="user.street"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Hausnummer:</ion-label>
+            <ion-input type="number" [(ngModel)]="user.houseNumber" name="user.houseNumber"></ion-input>
+        </ion-item>
+    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label (click)="showAgb()">AGBs bestätigen:</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-checkbox slot="end" [(ngModel)]="user.agbIsCheckedb" name="user.agbIsCheckedb"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 </ion-content>
 
 <ion-footer>
     <ion-toolbar>
-        <ion-button type="button" (click)="registrate()" >Registrieren</ion-button>
-        <ion-button (click)="redirectLogIn()" >Zum LogIn</ion-button>
+        <ion-button type="button" (click)="registrate()">Registrieren</ion-button>
+        <ion-button (click)="redirectLogIn()">Zum LogIn</ion-button>
     </ion-toolbar>
 </ion-footer>
