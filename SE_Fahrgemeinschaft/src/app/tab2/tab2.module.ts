@@ -1,17 +1,20 @@
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab2Page }])
-  ],
-  declarations: [Tab2Page]
+    imports: [
+        SharedModule,
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild([{ path: '', component: Tab2Page }])
+    ],
+    declarations: [Tab2Page],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab2PageModule {}

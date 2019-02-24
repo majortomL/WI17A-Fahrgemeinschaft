@@ -15,13 +15,12 @@ import {AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Testing HTTP and JSON
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 //for Firebase Config
 import { environment} from "../environments/environment";
 //for ServicesProvider
 //import { AuthServiceService } from './auth-service.service' ;
+//For Google Maps
+import { Geolocation} from "@ionic-native/geolocation";
 
 
 @NgModule({

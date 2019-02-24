@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Google Maps</ion-title>
+    </ion-toolbar>
 </ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+    <app-map *ngIf="(coordinates$|async) as coords" [coords]="coords">
+    </app-map>
+</ion-content>

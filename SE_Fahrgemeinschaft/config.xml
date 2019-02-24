@@ -83,4 +83,10 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-googleplus" spec="^7.0.0" />
+    <plugin name="cordova-plugin-app-preferences" spec="https://github.com/apla/me.apla.cordova.app-preferences" />
+    <plugin name="cordova-plugin-geolocation" spec="git+https://github.com/apache/cordova-plugin-geolocation.git" />
+    <plugin name="cordova-plugin-googlemaps" spec="2.5.1">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM" />
+    </plugin>
 </widget>

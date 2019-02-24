@@ -32,6 +32,7 @@
               }
             ],
             "styles": [
+
               {
                 "input": "src/theme/variables.scss"
               },
