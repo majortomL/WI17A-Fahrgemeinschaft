@@ -5,6 +5,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs/index";
 
 
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './login.page.html',
@@ -19,7 +20,8 @@ export class LogInPage implements OnInit {
   constructor(
     private myService: AuthServiceService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+
   ) {
   }
 
@@ -50,13 +52,18 @@ export class LogInPage implements OnInit {
     * */
 
     hierklickenfuerBackend() {
-        let test = this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', {
-                params: new HttpParams().append('path', '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23').append('key', '/telefon')
-            }
-        ).subscribe(function (value) {
-            console.log(value);
+
+        let test = this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/debuggingForMarcel')
+            .subscribe((Data) => {
+            console.log(Data.name)
         })
+
+        /*this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', {
+                params: new HttpParams().append('path', '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23').append('key', '/telefon')
+
+            }
+        ).subscribe((value) => {
+            console.log(value);
+        })*/
     }
-
-
 }
