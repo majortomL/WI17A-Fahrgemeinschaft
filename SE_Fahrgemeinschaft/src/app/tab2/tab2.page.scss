@@ -3,6 +3,12 @@
   overflow-y: auto;
 }
 
-ion-content{
-  background-color: #263238;
+ion-list{
+  height: 34%;
+  overflow-y: auto;
+
+}
+
+* ::-webkit-scrollbar {
+  display: none;
 }

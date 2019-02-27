@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: '', loadChildren: './home/home.module#HomePageModule' },
 //, canActivate: [AuthTestGuard]
   { path: 'test', loadChildren: './test/test.module#TestPageModule' },
-  { path: 'slider', loadChildren: './slider/slider.module#SliderPageModule' }
-
+  { path: 'slider', loadChildren: './slider/slider.module#SliderPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' }
 
 ];
 @NgModule({
