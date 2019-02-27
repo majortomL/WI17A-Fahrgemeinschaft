@@ -10,18 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //firebase overall
-import {AngularFireModule} from "@angular/fire";
+import {AngularFireModule} from '@angular/fire';
 //firebase Services
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Testing HTTP and JSON
 import { HttpClientModule } from '@angular/common/http';
 //for Firebase Config
-import { environment} from "../environments/environment";
+import { environment} from '../environments/environment';
 //firebase realtimedatabase
-import { AngularFireDatabaseModule} from "@angular/fire/database";
+import { AngularFireDatabaseModule} from '@angular/fire/database';
 //for Provider auth Guard
-import { AuthTestGuard }from './guards/authtest.guard';
-import { AgbComponent } from './component/agb/agb.component'
+import { AuthTestGuard } from './guards/authtest.guard';
+import { AgbComponent } from './component/agb/agb.component';
+
+
 @NgModule({
   declarations: [AppComponent, AgbComponent],
   entryComponents: [AgbComponent],
