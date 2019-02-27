@@ -18,27 +18,27 @@
 
   <ion-item>
     <ion-label position="floating">Vorname</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Name</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating" type="number">Telefonnummer</ion-label>
-    <ion-input></ion-input>
+    <ion-input type="tel" [(ngModel)]="telefon" clearInput></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating" type="password">Passwort</ion-label>
-    <ion-input></ion-input>
+    <ion-input type="password" clearInput></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">E-Mail</ion-label>
-    <ion-input></ion-input>
+    <ion-input type="email"></ion-input>
   </ion-item>
 
   <ion-button color="primary" style="margin-top: 2%">speichern</ion-button>
