@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth.service' ;
 import { Router } from '@angular/router'
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Observable} from "rxjs/index";
 
 
 @Component({
@@ -17,6 +19,7 @@ export class LogInPage implements OnInit {
   constructor(
     private myService: AuthServiceService,
     private router: Router,
+    private http: HttpClient
   ) {
   }
 
@@ -36,6 +39,23 @@ export class LogInPage implements OnInit {
     }
     redirectRegistration(){
        this.router.navigate(['/registration'])
+    }
+
+    /*ToDo
+    * 1. An der richtigen Stelle machen, vllt. Service oder iregendwo anders
+    * 2. Respone handlen
+    * 3. mit Variablen arbeiten
+    * 4. get/post/delete implementieren
+    * 5. Das Observable Ding funktionieren lassen
+    * */
+
+    hierklickenfuerBackend() {
+        let test = this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', {
+                params: new HttpParams().append('path', '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23').append('key', '/telefon')
+            }
+        ).subscribe(function (value) {
+            console.log(value);
+        })
     }
 
 

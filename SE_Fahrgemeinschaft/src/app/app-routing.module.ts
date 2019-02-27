@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LogInPageModule' },
   { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
-  { path: '', loadChildren: './home/home.module#HomePageModule' },
+  { path: '', loadChildren: './home/home.module#HomePageModule'},
 //, canActivate: [AuthTestGuard]
 
 

@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {RTDBService} from './rtdb.service'
 import {Router} from "@angular/router";
-import * as firebase from "firebase/app"
-import {Observable} from "rxjs/index";
 import { ToastController} from "@ionic/angular";
 import { PopoverController} from "@ionic/angular";
 import { AgbComponent} from '../component/agb/agb.component'
@@ -72,7 +70,12 @@ export class AuthServiceService {
     checkLoggedIn() {
        //console.log(this.afAuth.auth.currentUser.uid); //works both
        console.log(AuthServiceService.userID);
-
+       try {
+           return this.afAuth.auth.currentUser.uid
+       } catch (err){
+           return null;
+       }
+       ;
     }
     async presentAgb() {
         const popover = await this.popOver.create({
