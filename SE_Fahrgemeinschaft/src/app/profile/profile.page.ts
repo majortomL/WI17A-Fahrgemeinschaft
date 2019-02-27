@@ -8,7 +8,11 @@ import {Router} from "@angular/router";
 })
 export class ProfilePage implements OnInit {
 
-  constructor(public router: Router) { }
+  telefon:any;
+
+  constructor(public router: Router) {
+    this.telefon = '12';
+  }
 
   ngOnInit() {
   }
@@ -16,5 +20,7 @@ export class ProfilePage implements OnInit {
   goBack() {
     this.router.navigate(['/tabs/tab2'])
   }
+
+
 }
 

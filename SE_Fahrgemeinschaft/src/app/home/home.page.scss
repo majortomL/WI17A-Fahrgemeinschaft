@@ -4,15 +4,11 @@
 }
 
 ion-list{
-  height: 34%;
+  height: 33%;
   overflow-y: auto;
 
 }
 
-* ::-webkit-scrollbar {
-  display: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
+body{
+  overflow: hidden;
 }
