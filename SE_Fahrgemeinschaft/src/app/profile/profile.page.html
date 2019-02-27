@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Profil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
 
       <ion-row>
         <ion-avatar slot="start" style="margin-left: 2%; margin-top: 2%;">
@@ -40,6 +42,5 @@
   </ion-item>
 
   <ion-button color="primary" style="margin-top: 2%">speichern</ion-button>
-
 
 </ion-content>
