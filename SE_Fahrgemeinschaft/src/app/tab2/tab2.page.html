@@ -1,9 +1,18 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-title>Google Maps</ion-title>
+
     </ion-toolbar>
 </ion-header>
+
+
 <ion-content>
-    <app-map *ngIf="(coordinates$|async) as coords" [coords]="coords">
-    </app-map>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM&callback=mapInit"></script>
+    <div id="map"></div>
+    <ion-item *ngIf="hideMe">
+        <ion-input placeholder="Start..." [(ngModel)]="start"></ion-input>
+        <ion-button (click)="calcRoute(start); //hide(); map.setZoom(10)">Navigation starten!</ion-button>
+        <ion-button (click)="log()">test</ion-button>
+    </ion-item>
 </ion-content>
+

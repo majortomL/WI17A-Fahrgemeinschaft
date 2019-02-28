@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {from as fromPromise, Observable, of} from "rxjs";
-import {Capacitor, GeolocationPosition, Plugins} from "@capacitor/core";
-import {AlertController, LoadingController} from "@ionic/angular";
-import {switchMap, tap} from "rxjs/operators";
+import {Plugins} from '@capacitor/core';
+import {callbackify} from 'util';
+
+const {Geolocation} = Plugins;
 
 @Component({
     selector: 'app-tab2',
@@ -10,70 +10,95 @@ import {switchMap, tap} from "rxjs/operators";
     styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-    public coordinates$: Observable<GeolocationPosition>;
-    public defaultPos: { latitude: 42, longitude: 42 };
+    coords: { latitude: number, longitude: number };
+    start: any;
+    map: google.maps.Map;
+    res: any;
+    hideMe = true;
+    routeRend = new google.maps.DirectionsRenderer();
+    directionsServ = new google.maps.DirectionsService();
 
-    constructor(public loading: LoadingController,
-                public alertCtrl: AlertController) {
-
+    constructor(){
+        this.getCurrentPosition()
+            .then(coords => {
+                this.initMap();
+            });
     }
+
+    items = {
+        key: '1',
+        path: 'route',
+        value: ''
+    };
+
+    log() {
+        this.reDispRoute(this.res);
+    }
+
 
     ngOnInit() {
-        //start the loader
-        this.displayLoader()
-            .then((loader: any) => {
-                // get position
-                return this.getCurrentPosition()
-                    .then(position => {
-                        // close the loader + return the position
-                        loader.dismiss();
-                        return position;
-                    })
-                    // if error
-                    .catch(err => {
-                        // close loader + return NULL
-                        loader.dismiss();
-                        return null;
-                    });
-            });
-        console.log('asdf');
+
     }
 
-    async displayLoader() {
-        const loading = await this.loading.create(
-
-        );
-        await loading.present;
-        return loading;
-    }
-
-    private async presentAlert(message: string): Promise<HTMLIonAlertElement> {
-        const alert = await this.alertCtrl.create({
-            header: 'Alert',
-            subHeader: 'Wadafak we are offline',
-            message: message,
-            buttons: ['OK']
+    initMap() {
+        this.map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: {lat: this.coords.latitude, lng: this.coords.longitude},
+            streetViewControl: false,
         });
-        await alert.present();
-        return alert;
     }
 
-    private async getCurrentPosition(): Promise<any> {
-        const isAvailable: boolean = Capacitor.isPluginAvailable('Geolocation');
-        if (!isAvailable) {
-            console.log('Err: Plugin ist not available');
-            return of(new Error('Err: Plugin is not available'));
-        }
-        const POSITION = Plugins.Geolocation.getCurrentPosition()
-        // handle Capacitor Errors
-            .catch(err => {
-                console.log('ERR', err);
-                return new Error(err.message || 'customized message');
-            });
-        this.coordinates$ = fromPromise(POSITION).pipe(
-            switchMap((data: any) => of(data.coords)),
-            tap(data => console.log(data))
-        );
-        return POSITION;
+    calcRoute(start) {
+        var self = this;
+
+        this.routeRend.setMap(this.map);
+        const request = {
+            origin: start,
+            destination: 'DHBW Mosbach',
+            travelMode: google.maps.TravelMode.DRIVING,
+        };
+
+        this.directionsServ.route(request, function (result, status) {
+            let dist = result.routes[0].legs[0].distance;
+            let dur = result.routes[0].legs[0].duration;
+            self.routeRend.setDirections(result);
+            let string = JSON.stringify(result);
+            self.res = string;
+        });
+    }
+
+    reDispRoute(string) {
+        let route;
+
+        this.routeRend.setMap(this.map);
+
+        route = JSON.parse(string);
+        this.routeRend.setDirections(route);
+
+        console.log(route.routes[0].legs[0].distance);
+        console.log(route.routes[0].legs[0].duration);
+    }
+
+    // geoCode(loc) {
+    //     const gc = new google.maps.Geocoder();
+    //     let req = {
+    //         address: loc
+    //     };
+    //
+    //     gc.geocode(req, this.displayOnMap);
+    // }
+
+    async getCurrentPosition() {
+        const coordinates = await Geolocation.getCurrentPosition();
+        this.coords = coordinates.coords;
+    }
+
+    displayOnMap(geocodingResult) {
+        console.log(geocodingResult);
+        this.map.setCenter(geocodingResult.results[0].geometry.location);
+    }
+
+    hide() {
+        this.hideMe = false;
     }
 }
