@@ -15,6 +15,8 @@ import {Config} from '@ionic/angular';
 export class Tab2Page {
 
     public items: any;
+    public result: any;
+
 
     constructor(private http: HttpClient) {
     }
@@ -28,18 +30,28 @@ export class Tab2Page {
 
     }
 
-   /* PostHTTP() {
-        const items ={
-            body: {
-                value: '999',
-                key: '/telefon',
-                path: '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23'
-            }}
-        ;
+    PostHTTP() {
 
-        console.log(items);
-        const test = this.http.post('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', this.items);
-    }*/
+        this.items =
+         {
+            value: '77',
+            key: '/telefon',
+            path: '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23'
+
+        };
+        /*
+               this.items.append('key', '/telefon');
+               this.items.append('path', '/User/Rn257ENxyeWG7Hb4X7FufKnAwG23');
+               this.items.append('value', '999');
+*/
+        console.log(this.items);
+        const test = this.http.post('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', this.items)
+            .subscribe((data) => {
+                console.log(data);
+            });
+
+
+}
 
 }
 
