@@ -3,7 +3,6 @@ import {from as fromPromise, Observable, of} from "rxjs";
 import {Capacitor, GeolocationPosition, Plugins} from "@capacitor/core";
 import {AlertController, LoadingController} from "@ionic/angular";
 import {switchMap, tap} from "rxjs/operators";
-import 'googlemaps';
 
 @Component({
     selector: 'app-tab2',

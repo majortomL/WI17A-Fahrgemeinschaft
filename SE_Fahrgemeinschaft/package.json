@@ -41,6 +41,7 @@
     "firebase": "^5.8.1",
     "googlemaps": "^1.12.0",
     "rxjs": "^6.3.3",
+    "stream-browserify": "^2.0.2",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -80,13 +81,14 @@
   },
   "browser": {
     "http": false,
-    "https":false,
+    "https": false,
     "net": false,
     "path": false,
     "stream": false,
     "tls": false,
     "crypto": false,
     "fs": false,
-    "zlib": false
+    "zlib": false,
+    "request": false
   }
 }
