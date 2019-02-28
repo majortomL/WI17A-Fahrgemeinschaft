@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.app",
+  "appName": "SE_Fahrgemeinschaft",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
