@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService} from "../services/auth.service";
 import {Router} from "@angular/router";
-import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -10,22 +8,14 @@ import {NavController} from "@ionic/angular";
 })
 export class HomePage implements OnInit {
 
-  constructor(
-      private authService : AuthServiceService,
-      private navCtrl: NavController,
-      private router: Router
-  ) { }
+  constructor(public router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  LogOut(){
-        this.authService.logOut();
+  openProfile(){
+    this.router.navigate(['/profile'])
   }
 
-    ionViewWillEnter(){
-       if(AuthServiceService.userID == null){
-           this.router.navigate(['/login'])
-       }
-    }
 }
