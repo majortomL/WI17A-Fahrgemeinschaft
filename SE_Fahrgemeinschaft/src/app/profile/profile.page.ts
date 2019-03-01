@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {RTDBService} from '../services/rtdb.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,19 +9,29 @@ import {Router} from "@angular/router";
 })
 export class ProfilePage implements OnInit {
 
-  telefon:any;
 
-  constructor(public router: Router) {
-    this.telefon = '12';
+
+
+  constructor(public router: Router, private RTDBServ: RTDBService)
+  {
+
   }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+
+
+
   }
 
   goBack() {
     this.router.navigate(['/home']);
   }
 
+  getProfile()
+  {
+
+  }
 
 }
 
