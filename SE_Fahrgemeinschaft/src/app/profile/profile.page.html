@@ -36,7 +36,7 @@
     <ion-input type="email" [(ngModel)]="Profile.email"></ion-input>
   </ion-item>
 
-  <ion-button color="primary" style="margin-top: 2%">speichern</ion-button>
+  <ion-button color="primary" (click)="updateProfile()" style="margin-top: 2%">speichern</ion-button>
   <ion-button (click)="getProfile()"></ion-button>
 
 </ion-content>
