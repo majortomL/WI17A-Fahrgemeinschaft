@@ -1,0 +1,14 @@
+#but{
+  display: block;
+  width: 99%;
+}
+
+#map{
+  width: 10%;
+  height: 10%;
+  display: contents;
+}
+
+ion-content{
+  --overflow: hidden;
+}

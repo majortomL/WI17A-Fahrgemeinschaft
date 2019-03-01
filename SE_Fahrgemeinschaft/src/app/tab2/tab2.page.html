@@ -12,7 +12,9 @@
     <ion-item *ngIf="hideMe">
         <ion-input placeholder="Start..." [(ngModel)]="start"></ion-input>
         <ion-button (click)="calcRoute(start); //hide(); map.setZoom(10)">Navigation starten!</ion-button>
-        <ion-button (click)="log()">test</ion-button>
+        <ion-button (click)="writeInFirebase()">In Datenbank ablegen!</ion-button>
+        <ion-button (click)="getFromFirebase()">Route aus Datenbank herunterladen!</ion-button>
+        <ion-button (click)="showRouteFromFB()">Route aus Datenbank anzeigen!</ion-button>
     </ion-item>
 </ion-content>
 
