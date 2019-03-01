@@ -31,12 +31,13 @@ export class RTDBService {
     }
 
     updateProfile(req)
-    {/*
-            const test = this.http.post('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/Database', req)
+    {
+
+            const test = this.http.post('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/updateProfile', req)
           .subscribe((data) => {
-           // console.log(data);
+           console.log(data);
           });
-          */
+
     }
 
     deleteProfile()

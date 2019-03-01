@@ -12,5 +12,5 @@ export interface ProfileInterface {
     name: string;
     plz: string;
     street: string;
-    telefonnumber: number;
+    telefonNumber: number;
 }

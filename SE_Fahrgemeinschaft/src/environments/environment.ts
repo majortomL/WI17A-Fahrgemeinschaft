@@ -14,7 +14,7 @@ export const environment = {
         storageBucket: "db-test-fahrgemeinschaft.appspot.com",
         messagingSenderId: "951385480679"
      },
-     UID : "kDJ9JbLlxodlEWkRImF4YPy1LdJ3"
+     UID : "sLY8qzZ5vIWhPKhCe89G2JO68JG2"
 };
 
 /*

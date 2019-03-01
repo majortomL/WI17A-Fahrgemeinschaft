@@ -29,7 +29,7 @@ export class ProfilePage implements OnInit {
             name: "",
             plz: "",
             street: "",
-            telefonnumber: 0,
+            telefonNumber: 0,
         }
         this.getProfile();
 
@@ -51,6 +51,12 @@ export class ProfilePage implements OnInit {
 
             })
         })
+    }
+
+    updateProfile(){
+
+        //console.log(this.Profile);
+        this.RTDBServ.updateProfile(this.Profile);
     }
 
 
