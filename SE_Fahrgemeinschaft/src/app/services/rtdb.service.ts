@@ -40,6 +40,12 @@ export class RTDBService {
 
     }
 
+    async getMessages(){
+        return await (this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/getMessages', {
+            params: new HttpParams().append('recieverUID', environment.UID)
+        }))
+    }
+
     deleteProfile()
     {
       //  tba.

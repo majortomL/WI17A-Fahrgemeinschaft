@@ -48,7 +48,6 @@ export class ProfilePage implements OnInit {
         await this.RTDBServ.getProfile().then((value) => {
             value.subscribe((data: ProfileInterface) => {
                 this.Profile = data
-
             })
         })
     }
