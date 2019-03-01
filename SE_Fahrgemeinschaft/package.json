@@ -40,7 +40,9 @@
     "crypto": "^1.0.1",
     "firebase": "^5.8.1",
     "googlemaps": "^1.12.0",
-    "rxjs": "^6.3.3",
+    "ionic-angular": "^3.9.4",
+    "rxjs": "^6.4.0",
+    "rxjs-compat": "^6.4.0",
     "stream-browserify": "^2.0.2",
     "zone.js": "~0.8.29"
   },

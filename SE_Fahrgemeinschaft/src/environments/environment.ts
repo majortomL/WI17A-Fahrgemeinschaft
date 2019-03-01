@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+    production: false,
     fire: {
 
 
@@ -13,7 +13,11 @@ export const environment = {
         projectId: "db-test-fahrgemeinschaft",
         storageBucket: "db-test-fahrgemeinschaft.appspot.com",
         messagingSenderId: "951385480679"
-     }
+    },
+    nachfrager: {
+        nfLoc: '',
+        nfTime: ''
+    }
 };
 
 /*

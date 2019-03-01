@@ -1,80 +1,64 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
         <ion-title>
             Nachfrager
         </ion-title>
-
     </ion-toolbar>
+
+    <div id="contents" style="position: relative; z-index: 2">
+        <ion-item>
+                <ion-input placeholder="Startort..." [(ngModel)]="startLoc"></ion-input>
+                <ion-button (click)="lookupLocation()">Ort suchen!</ion-button>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Ankunftszeitpunkt:</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
+                          [(ngModel)]="arrivTime"></ion-datetime>
+        </ion-item>
+
+        <!--<ion-card>-->
+        <!--<ion-card-header>-->
+        <!--<ion-card-subtitle></ion-card-subtitle>-->
+        <!--<ion-card-title>Fahrt 1</ion-card-title>-->
+        <!--</ion-card-header>-->
+
+        <!--<ion-card-content>-->
+        <!--Route, Informationen etc-->
+        <!--</ion-card-content>-->
+        <!--</ion-card>-->
+
+        <!--<ion-card>-->
+        <!--<ion-card-header>-->
+        <!--<ion-card-subtitle></ion-card-subtitle>-->
+        <!--<ion-card-title>Fahrt 2</ion-card-title>-->
+        <!--</ion-card-header>-->
+
+        <!--<ion-card-content>-->
+        <!--Route, Informationen etc-->
+        <!--</ion-card-content>-->
+        <!--</ion-card>-->
+
+        <!--<ion-card>-->
+        <!--<ion-card-header>-->
+        <!--<ion-card-subtitle></ion-card-subtitle>-->
+        <!--<ion-card-title>Fahrt 3</ion-card-title>-->
+        <!--</ion-card-header>-->
+
+        <!--<ion-card-content>-->
+        <!--Route, Informationen etc-->
+        <!--</ion-card-content>-->
+        <!--</ion-card>-->
+    </div>
 </ion-header>
 
+<ion-content id="content1">
 
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM&callback=mapInit"></script>
-    <ion-grid>
-        <ion-row>
-            <div id="contents">
-                <ion-item>
-                    <ion-label>
-                        Startort:
-                    </ion-label>
-                    <ion-input [(ngModel)]="startLoc"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>Ankunftszeitpunkt:</ion-label>
-                    <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
-                                  [(ngModel)]="arrivTime"></ion-datetime>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>
-                        Ihre Fahrten :
-                    </ion-label>
-                </ion-item>
-
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-subtitle></ion-card-subtitle>
-                        <ion-card-title>Fahrt 1</ion-card-title>
-                    </ion-card-header>
-
-                    <ion-card-content>
-                        Route, Informationen etc
-                    </ion-card-content>
-                </ion-card>
-
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-subtitle></ion-card-subtitle>
-                        <ion-card-title>Fahrt 2</ion-card-title>
-                    </ion-card-header>
-
-                    <ion-card-content>
-                        Route, Informationen etc
-                    </ion-card-content>
-                </ion-card>
-
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-subtitle></ion-card-subtitle>
-                        <ion-card-title>Fahrt 3</ion-card-title>
-                    </ion-card-header>
-
-                    <ion-card-content>
-                        Route, Informationen etc
-                    </ion-card-content>
-                </ion-card>
-            </div>
-        </ion-row>
-        <ion-row>
-        </ion-row>
-        <ion-row>
-            <ion-button id="but" (click)="test()">Suchen</ion-button>
-        </ion-row>
-    </ion-grid>
-
-    <div id="mapForNow">
-        <div id="map"></div>
-    </div>
-
+    <div id="map"></div>
 </ion-content>
+<footer>
+    <ion-button *ngIf="!hideMe" id="but" (click)="toResults()">Fahrten suchen!</ion-button>
+    <ion-button href="http://localhost:8100/nachfrager-results">zur res page</ion-button>
+</footer>

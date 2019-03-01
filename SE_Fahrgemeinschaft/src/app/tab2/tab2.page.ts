@@ -22,8 +22,6 @@ export class Tab2Page {
     routeRend = new google.maps.DirectionsRenderer();
     directionsServ = new google.maps.DirectionsService();
     routeFromFB: any;
-    // Für Push auf andere Seite
-    // nav = new Nav();
 
     items = {
         key: '1',
@@ -54,8 +52,6 @@ export class Tab2Page {
 
     calcRoute(start) {
         var self = this;
-
-
         const request = {
             origin: start,
             destination: 'DHBW Mosbach',

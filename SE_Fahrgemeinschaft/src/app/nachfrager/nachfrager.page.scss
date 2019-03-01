@@ -1,7 +1,7 @@
-#but{
-  display: block;
-  width: 99%;
-}
+//#but{
+//  display: block;
+//  width: 99%;
+//}
 
 #map{
   width: 10%;
@@ -11,4 +11,12 @@
 
 ion-content{
   --overflow: hidden;
+}
+
+#content1{
+  height: fit-content;
+}
+
+footer{
+  background-color: white;
 }

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Routensuche</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM&callback=mapInit"></script>
+    <div id="map"></div>
+</ion-content>
+
+<ion-footer>
+    <ion-button (click)="searchRoute()">Route mit neuem Punkt berechnen ALder</ion-button>
+    <ion-button (click)="loadMapAll()">MAP LADEN</ion-button>
+</ion-footer>

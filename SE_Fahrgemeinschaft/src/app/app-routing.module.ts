@@ -11,7 +11,8 @@ const routes: Routes = [
     {path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule'},
     {path: 'test', loadChildren: './test/test.module#TestPageModule'},
     {path: 'nachfrager', loadChildren: './nachfrager/nachfrager.module#NachfragerPageModule'},
-    {path: 'route-details', loadChildren: './route-details/route-details.module#RouteDetailsPageModule'},
+    {path: 'route-details', loadChildren: './route-details/route-details.module#RouteDetailsPageModule'},  { path: 'nachfrager-results', loadChildren: './nachfrager-results/nachfrager-results.module#NachfragerResultsPageModule' },
+
 ];
 
 @NgModule({
