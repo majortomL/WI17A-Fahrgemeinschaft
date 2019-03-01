@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'test', loadChildren: './test/test.module#TestPageModule' },
   { path: 'slider', loadChildren: './slider/slider.module#SliderPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' }
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },  { path: 'nachfrager', loadChildren: './nachfrager/nachfrager.module#NachfragerPageModule' }
+
 
 ];
 @NgModule({
