@@ -12,9 +12,11 @@ export class ProfilePage implements OnInit {
 
     Profile: ProfileInterface;
 
+
   constructor(public router: Router, private RTDBServ: RTDBService)
   {
-        //this.Profile= this.getProfile();
+
+        this.getProfile();
         console.log(this.Profile);
   }
 
@@ -31,10 +33,15 @@ export class ProfilePage implements OnInit {
 
   getProfile()
   {
-        return this.RTDBServ.getProfile().then((value)=> {
-            value.subscribe((data) => {console.log(data)})
-  });
+        this.RTDBServ.getProfile().then((value)=> {
+            value.subscribe((data: ProfileInterface) => {
+                this.Profile = data
+
+            })
+        })
+      console.log(this.Profile);
   }
+
 
 }
 
