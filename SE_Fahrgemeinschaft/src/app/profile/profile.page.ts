@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RTDBService} from '../services/rtdb.service';
 import {ProfileInterface} from './Profile_Interface';
+import { AuthServiceService} from "../services/auth.service";
 
 @Component({
     selector: 'app-profile',
@@ -15,7 +16,9 @@ export class ProfilePage implements OnInit {
 //  ToDO : Ionic Waiter Components (wartekringel)
 
 
-    constructor(public router: Router, private RTDBServ: RTDBService) {
+    constructor(public router: Router,
+                private RTDBServ: RTDBService,
+                private authService: AuthServiceService,) {
         this.Profile = {
             agbIsChecked: "",
             agbIsCheckedb: "",
@@ -42,6 +45,10 @@ export class ProfilePage implements OnInit {
 
     goBack() {
         this.router.navigate(['/home']);
+    }
+
+    logOut(){
+        this.authService.logOut();
     }
 
     async getProfile() {
