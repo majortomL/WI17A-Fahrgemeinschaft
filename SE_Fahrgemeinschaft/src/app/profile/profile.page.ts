@@ -11,7 +11,7 @@ import {ProfileInterface} from './Profile_Interface';
 export class ProfilePage implements OnInit {
 
     Profile: ProfileInterface;
-
+//  ToDO : Ionic Waiter Components (wartekringel)
 
   constructor(public router: Router, private RTDBServ: RTDBService)
   {
@@ -31,9 +31,9 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  getProfile()
+  async getProfile()
   {
-        this.RTDBServ.getProfile().then((value)=> {
+      await this.RTDBServ.getProfile().then((value)=> {
             value.subscribe((data: ProfileInterface) => {
                 this.Profile = data
 
