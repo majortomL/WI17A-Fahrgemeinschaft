@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { RTDBService } from '../services/rtdb.service';
+import {RTDBService} from '../services/rtdb.service';
 import {LoadingController, PopoverController, ToastController} from '@ionic/angular';
-import { PopOverRidesComponent } from '../component/popOverRides/popOverRides.component'
-import { Router} from "@angular/router";
+import {PopOverRidesComponent} from '../component/popOverRides/popOverRides.component'
+import {Router} from "@angular/router";
 
 //test for Map
-import { Platform } from '@ionic/angular'
+import {Platform} from '@ionic/angular'
 import {
     GoogleMaps,
     GoogleMap,
@@ -27,18 +27,17 @@ export class NachfragerPage implements OnInit {
 
     endTime: any;
     origin: any;
-    rides : JSON [];
-    constructor(private rtdb : RTDBService,
-                private popOverCtrl: PopoverController,
-                private router: Router,
-                private tostCtrl : ToastController,
-                private platform: Platform,
-                private loadingCtrl : LoadingController
-                ) {
+    rides: JSON [];
 
+    constructor(
+        public loadingCtrl: LoadingController,
+        public toastCtrl: ToastController,
+        private platform: Platform) {
     }
 
     async ngOnInit() {
+        // Since ngOnInit() is executed before `deviceready` event,
+        // you have to wait the event.
         await this.platform.ready();
         await this.loadMap();
     }
@@ -68,7 +67,7 @@ export class NachfragerPage implements OnInit {
         // Get the location of you
         this.map.getMyLocation().then((location: MyLocation) => {
             this.loading.dismiss();
-            console.log(JSON.stringify(location, null ,2));
+            console.log(JSON.stringify(location, null, 2));
 
             // Move the map camera to the location with animation
             this.map.animateCamera({
@@ -100,7 +99,7 @@ export class NachfragerPage implements OnInit {
     }
 
     async showToast(message: string) {
-        let toast = await this.tostCtrl.create({
+        let toast = await this.toastCtrl.create({
             message: message,
             duration: 2000,
             position: 'middle'
@@ -108,7 +107,4 @@ export class NachfragerPage implements OnInit {
 
         toast.present();
     }
-
-
-
 }
