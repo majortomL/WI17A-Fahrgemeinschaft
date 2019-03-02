@@ -55,17 +55,18 @@ export class HomePage implements OnInit {
 
     }
 
-    clickMessage(){
+    clickMessage(CreatorUID: string, RideID: string){
         console.log("geht")
-        this.presentPopover();
+        this.presentPopover(CreatorUID, RideID);
     }
 
-    async presentPopover() {
+    async presentPopover(CreatorUID: string, RideID: string) {
         const popover = await this.popOverCtrl.create({
             component: PopOverMessageComponent,
             translucent: true,
             componentProps: {
-                "RideID" : "Test"
+                "CreatorUID" : CreatorUID,
+                "RideID": RideID
             }
 
         });

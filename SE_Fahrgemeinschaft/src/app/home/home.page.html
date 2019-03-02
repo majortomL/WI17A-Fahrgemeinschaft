@@ -16,7 +16,7 @@
     </ion-toolbar>
 
     <ion-list lines="none">
-        <ion-item *ngFor="let message of temp" (click)="clickMessage()">
+        <ion-item *ngFor="let message of temp" (click)="clickMessage(message.creatorUID, message.topic)">
 
             <ion-item-sliding>
                 <ion-item>
