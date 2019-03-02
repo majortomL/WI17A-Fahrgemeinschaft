@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {MessageInterface} from './messageInterface'
 import {RTDBService} from "../services/rtdb.service";
+import {PopOverMessageComponent} from "../component/popOverMessage/popOverMessage.component";
+import { PopoverController} from "@ionic/angular";
 
 @Component({
     selector: 'app-home',
@@ -12,16 +14,18 @@ import {RTDBService} from "../services/rtdb.service";
 export class HomePage implements OnInit {
     test = "YO";
     message : MessageInterface;
-    temp : Array<string> = ["","",""];
+    temp : MessageInterface[] ;
 
     constructor(public router: Router,
                 private http: HttpClient,
-                private rtdb: RTDBService) {
+                private rtdb: RTDBService,
+                private popOverCtrl: PopoverController) {
         this.message = {
             recieverUID: "",
             content : "",
             creatorUID: "",
             topic: 1,
+            date: "",
         }
         this.getMessages();
     }
@@ -36,7 +40,7 @@ export class HomePage implements OnInit {
 
    async getMessages() {
         await this.rtdb.getMessages().then((value) => {
-            value.subscribe((data : string[]) => {
+            value.subscribe((data : MessageInterface[]) => {
                 this.temp = data;
 
             })
@@ -49,6 +53,26 @@ export class HomePage implements OnInit {
     }
     redirectAnbieter(){
 
+    }
+
+    clickMessage(){
+        console.log("geht")
+        this.presentPopover();
+    }
+
+    async presentPopover() {
+        const popover = await this.popOverCtrl.create({
+            component: PopOverMessageComponent,
+            translucent: true,
+            componentProps: {
+                "RideID" : "Test"
+            }
+
+        });
+        popover.onDidDismiss().then((dataReturned) => {
+
+        })
+        return await popover.present();
     }
 
 }
