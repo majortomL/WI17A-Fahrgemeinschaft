@@ -3,18 +3,31 @@
         <ion-title>Google Maps</ion-title>
 
     </ion-toolbar>
-    <ion-item *ngIf="hideMe">
+    <ion-item>
         <ion-input placeholder="Start..." [(ngModel)]="start"></ion-input>
         <ion-button (click)="calcRoute(start)">Navigation starten!</ion-button>
-        <ion-button (click)="writeInFirebase()">In Datenbank ablegen!</ion-button>
-        <ion-button (click)="getFromFirebase()">Route aus Datenbank herunterladen!</ion-button>
-        <ion-button (click)="showRouteFromFB()">Route aus Datenbank anzeigen!</ion-button>
+    </ion-item>
+    <ion-item>
+        <ion-label>Ankunftszeitpunkt:</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
+                      [(ngModel)]="arrivalDateTime"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-input placeholder="Verfügbare Sitzplätze..." [(ngModel)]="seats"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input placeholder="Toleranz in Minuten..." [(ngModel)]="tolerance"></ion-input>
     </ion-item>
 </ion-header>
 
 <ion-content>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM&callback=mapInit"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM&callback=mapInit"></script>
     <div id="map"></div>
-
 </ion-content>
 
+<ion-footer>
+    <ion-button (click)="submitRide()" id="button" [disabled]="!routeCalculated||!arrivalDateTime||!seats||!tolerance">Fahrt
+        einreichen!
+    </ion-button>
+</ion-footer>
