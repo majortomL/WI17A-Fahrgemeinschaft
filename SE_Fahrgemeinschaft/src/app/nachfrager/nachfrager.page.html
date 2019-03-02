@@ -23,8 +23,7 @@
 
     <ion-button (click)="search()">Suchen</ion-button>
 
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=oehringen&destination=hamburg&key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM" allowfullscreen>
-    </iframe>
+
     <!--Hier ngfor einfügen-->
     <ion-item *ngFor="let ride of rides">
         <ion-card (click)="presentPopover()">
