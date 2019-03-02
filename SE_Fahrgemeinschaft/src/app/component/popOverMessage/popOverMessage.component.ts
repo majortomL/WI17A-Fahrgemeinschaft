@@ -18,17 +18,26 @@ export class PopOverMessageComponent implements OnInit {
   }
 
 
-    ablehnen(){
+    async ablehnen(){
+        await(this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/confirmApplicantByCreator', {
+            params: new HttpParams().append('accepted', "false")
+                .append("applicantUID",this.CreatorUID)
+                .append("rideID",this.RideID)
+                .append("UID", environment.UID)
+        }).subscribe((data)=>{
+            console.log(data);
+        }));
 
     }
 
     async annehmen(){
-        console.log("Hier in annehmen/ Creator: " + this.CreatorUID + "Ride: "+this.RideID)
         await(this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/confirmApplicantByCreator', {
             params: new HttpParams().append('accepted', "true")
                 .append("applicantUID",this.CreatorUID)
                 .append("rideID",this.RideID)
                 .append("UID", environment.UID)
+        }).subscribe((data)=>{
+            console.log(data);
         }));
 
 

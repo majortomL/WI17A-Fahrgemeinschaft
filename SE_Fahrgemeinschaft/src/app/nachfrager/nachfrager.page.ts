@@ -13,7 +13,7 @@ export class NachfragerPage implements OnInit {
 
     endTime: any;
     origin: any;
-    rides : JSON [];
+    rides : JSON[];
     constructor(private rtdb : RTDBService,
                 private popOverCtrl: PopoverController,
                 private router: Router) {
