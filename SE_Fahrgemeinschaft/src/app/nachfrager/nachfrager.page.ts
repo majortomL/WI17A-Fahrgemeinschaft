@@ -22,7 +22,7 @@ import {
 })
 export class NachfragerPage implements OnInit {
 
-    map:GoogleMap;
+    map: GoogleMap;
     loading: any;
 
     endTime: any;
@@ -110,32 +110,5 @@ export class NachfragerPage implements OnInit {
     }
 
 
-    async search() {
-        //hier Algorithmus aus NotePad implementieren
-
-        let temp = this.endTime.split("T", 2);  //date to be added
-        temp = temp[1].slice(0,5);
-        await this.rtdb.searchRides(this.origin, temp).then((value) => {
-            value.subscribe((data : JSON[]) => {
-               this.rides = data;
-            })
-        })
-    }
-
-    showRide(){
-        console.log("click funktioniert")
-    }
-
-    async presentPopover() {
-        const popover = await this.popOverCtrl.create({
-            component: PopOverRidesComponent,
-            translucent: true
-        });
-        return await popover.present();
-    }
-
-    redirectHome(){
-        this.router.navigate([''])
-    }
 
 }
