@@ -9,11 +9,9 @@ import {Platform} from '@ionic/angular'
 import {
     GoogleMaps,
     GoogleMap,
-    GoogleMapsEvent,
-    Marker,
-    GoogleMapsAnimation,
-    MyLocation
-} from "@ionic-native/google-maps";
+    Environment
+} from "@ionic-native/google-maps/ngx";
+import {blue} from "@angular-devkit/core/src/terminal";
 
 @Component({
     selector: 'app-nachfrager',
@@ -23,16 +21,11 @@ import {
 export class NachfragerPage implements OnInit {
 
     map: GoogleMap;
-    loading: any;
 
-    endTime: any;
-    origin: any;
-    rides: JSON [];
 
-    constructor(
-        public loadingCtrl: LoadingController,
-        public toastCtrl: ToastController,
-        private platform: Platform) {
+    constructor(public loadingCtrl: LoadingController,
+                public toastCtrl: ToastController,
+                private platform: Platform) {
     }
 
     async ngOnInit() {
@@ -43,20 +36,17 @@ export class NachfragerPage implements OnInit {
     }
 
     loadMap() {
-        this.map = GoogleMaps.create('map_canvas', {
-            camera: {
-                target: {
-                    lat: 43.0741704,
-                    lng: -89.3809802
-                },
-                zoom: 18,
-                tilt: 30
-            }
-        });
+
+        Environment.setEnv({
+            'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyAbn93_tFA-DuYcDUoGzVfF_siYnhAqGMM',
+            'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyAbn93_tFA-DuYcDUoGzVfF_siYnhAqGMM',
+        })
+
+        this.map = GoogleMaps.create('map_canvas');
 
     }
 
-    async onButtonClick() {
+    /*async onButtonClick() {
         this.map.clear();
 
         this.loading = await this.loadingCtrl.create({
@@ -96,15 +86,15 @@ export class NachfragerPage implements OnInit {
                 this.loading.dismiss();
                 this.showToast(err.error_message);
             });
-    }
+    }*/
 
-    async showToast(message: string) {
-        let toast = await this.toastCtrl.create({
-            message: message,
-            duration: 2000,
-            position: 'middle'
-        });
+    /*    async showToast(message: string) {
+            let toast = await this.toastCtrl.create({
+                message: message,
+                duration: 2000,
+                position: 'middle'
+            });
 
-        toast.present();
-    }
+            toast.present();
+        }*/
 }

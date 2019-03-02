@@ -23,6 +23,8 @@ import { AngularFireDatabaseModule} from "@angular/fire/database";
 import { AuthTestGuard }from './guards/authtest.guard';
 import { AgbComponent } from './component/agb/agb.component';
 import { PopOverRidesComponent } from './component/popOverRides/popOverRides.component'
+
+
 @NgModule({
   declarations: [AppComponent, AgbComponent, PopOverRidesComponent],
   entryComponents: [AgbComponent, PopOverRidesComponent],
@@ -40,6 +42,7 @@ import { PopOverRidesComponent } from './component/popOverRides/popOverRides.com
     StatusBar,
     SplashScreen,
       AuthTestGuard,
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
