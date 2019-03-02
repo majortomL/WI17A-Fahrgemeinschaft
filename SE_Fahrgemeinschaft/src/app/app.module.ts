@@ -21,10 +21,11 @@ import { environment} from "../environments/environment";
 import { AngularFireDatabaseModule} from "@angular/fire/database";
 //for Provider auth Guard
 import { AuthTestGuard }from './guards/authtest.guard';
-import { AgbComponent } from './component/agb/agb.component'
+import { AgbComponent } from './component/agb/agb.component';
+import { PopOverRidesComponent } from './component/popOverRides/popOverRides.component'
 @NgModule({
-  declarations: [AppComponent, AgbComponent],
-  entryComponents: [AgbComponent],
+  declarations: [AppComponent, AgbComponent, PopOverRidesComponent],
+  entryComponents: [AgbComponent, PopOverRidesComponent],
   imports: [
       BrowserModule,
       IonicModule.forRoot(),

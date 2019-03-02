@@ -77,7 +77,6 @@ export class AuthServiceService {
     async presentAgb() {
         const popover = await this.popOver.create({
             component: AgbComponent,
-           // event: ev,
             translucent: true
         });
         return await popover.present();
