@@ -39,11 +39,18 @@ export class NachfragerPage implements OnInit {
         console.log("click funktioniert")
     }
 
-    async presentPopover() {
+    async presentPopover(RideID: string) {
         const popover = await this.popOverCtrl.create({
             component: PopOverRidesComponent,
-            translucent: true
+            translucent: true,
+            componentProps: {
+                "RideID" : RideID
+            }
+
         });
+        popover.onDidDismiss().then((dataReturned) => {
+
+        })
         return await popover.present();
     }
 
