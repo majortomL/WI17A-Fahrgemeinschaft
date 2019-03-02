@@ -44,4 +44,11 @@ export class HomePage implements OnInit {
 
     }
 
+    redirectNachfrager(){
+        this.router.navigate(['/nachfrager'])
+    }
+    redirectAnbieter(){
+
+    }
+
 }

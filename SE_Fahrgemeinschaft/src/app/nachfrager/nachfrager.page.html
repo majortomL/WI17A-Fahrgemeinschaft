@@ -8,7 +8,7 @@
 
     <ion-item>
         <ion-label>Startpunkt</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="origin"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>Endpunkt</ion-label>
@@ -18,43 +18,26 @@
     <ion-item>
         <ion-label>Ankunftszeitpunkt:</ion-label>
         <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
-                      [(ngModel)]="arriveTime"></ion-datetime>
+                      [(ngModel)]="endTime"></ion-datetime>
     </ion-item>
 
     <ion-button (click)="search()">Suchen</ion-button>
 
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=oehringen&destination=hamburg&key=AIzaSyCmRDcPvY-MhNWpNlOnyYZwShDimUQumhM" allowfullscreen>
+    </iframe>
     <!--Hier ngfor einfügen-->
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-card-title>Fahrt 1</ion-card-title>
-        </ion-card-header>
+    <ion-item *ngFor="let ride of rides">
+        <ion-card (click)="presentPopover()">
+            <ion-card-header>
+                <ion-card-subtitle></ion-card-subtitle>
+                <ion-card-title>Von {{ride.origin}} Nach {{ride.destination}} Für {{ride.endTime}}</ion-card-title>
+            </ion-card-header>
 
-        <ion-card-content>
-            Route, Informationen etc
-        </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-card-title>Fahrt 2</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-            Route, Informationen etc
-        </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-card-title>Fahrt 3</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-            Route, Informationen etc
-        </ion-card-content>
-    </ion-card>
+            <ion-card-content>
+               Preis: {{ride.price}}
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
+    <ion-button (click)="redirectHome()"></ion-button>
 
 </ion-content>

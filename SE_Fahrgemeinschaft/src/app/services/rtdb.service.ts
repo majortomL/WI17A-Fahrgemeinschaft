@@ -50,4 +50,10 @@ export class RTDBService {
     {
       //  tba.
     }
+
+    async searchRides(origin: string, endTime: string){
+        return await (this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/searchRide', {
+            params: new HttpParams().append('origin', origin).append('destination','Mosbach').append('endTime',endTime)
+        }))
+    }
 }
