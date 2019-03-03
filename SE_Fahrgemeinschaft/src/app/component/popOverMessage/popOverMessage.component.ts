@@ -25,7 +25,7 @@ export class PopOverMessageComponent implements OnInit {
                 .append("rideID",this.RideID)
                 .append("UID", environment.UID)
         }).subscribe((data)=>{
-            console.log(data);
+            //do something with the returned data
         }));
 
     }
@@ -37,7 +37,7 @@ export class PopOverMessageComponent implements OnInit {
                 .append("rideID",this.RideID)
                 .append("UID", environment.UID)
         }).subscribe((data)=>{
-            console.log(data);
+            //do something with the returned data
         }));
 
 

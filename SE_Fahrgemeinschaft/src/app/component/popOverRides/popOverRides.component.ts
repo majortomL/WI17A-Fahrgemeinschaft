@@ -3,7 +3,8 @@ import {HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {NavParams} from "@ionic/angular";
-import { Input} from "@angular/core";
+import {Input} from "@angular/core";
+import {RTDBService} from "../../services/rtdb.service";
 
 @Component({
     selector: 'app-pop-over-rides',
@@ -11,9 +12,9 @@ import { Input} from "@angular/core";
     styleUrls: ['./popOverRides.component.scss']
 })
 export class PopOverRidesComponent implements OnInit {
-    @Input() RideID: string;
+    @Input() rideID: string;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private rtdb: RTDBService) {
     }
 
     ngOnInit() {
@@ -22,13 +23,16 @@ export class PopOverRidesComponent implements OnInit {
 
     async Bewerben() {
 
+        this.rtdb.applyRide(this.rideID)
+            .then((data) => {
+                data.subscribe((data) =>{
+                    //do something with returned data from Apply(Backend)
 
-        await this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/applyForSeat', {
-            params: new HttpParams().append('UID', environment.UID).append('RideID', this.RideID)
-        }).subscribe((data) => {
-            console.log(data);
-        });
-
+                })
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
     }
 
 }

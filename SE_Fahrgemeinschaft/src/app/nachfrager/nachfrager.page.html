@@ -33,10 +33,13 @@
             </ion-card-header>
 
             <ion-card-content>
-               Preis: {{ride.price}}
+                Preis: {{ride.price}}
             </ion-card-content>
         </ion-card>
     </ion-item>
-    <ion-button (click)="redirectHome()"></ion-button>
 
 </ion-content>
+<ion-footer>
+    <ion-button (click)="redirectHome()">Home</ion-button>
+    <ion-button (click)="search()">Suchen</ion-button>
+</ion-footer>

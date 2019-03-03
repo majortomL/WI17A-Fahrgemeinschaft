@@ -6,13 +6,18 @@ import {RTDBService} from "../services/rtdb.service";
 import {PopOverMessageComponent} from "../component/popOverMessage/popOverMessage.component";
 import { PopoverController} from "@ionic/angular";
 
+/*ToDo
+* Messages isn't working right now
+* rename variables from temp to ***
+* redirect "Anbieter"
+* */
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.page.html',
     styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-    test = "YO";
     message : MessageInterface;
     temp : MessageInterface[] ;
 
@@ -42,7 +47,6 @@ export class HomePage implements OnInit {
         await this.rtdb.getMessages().then((value) => {
             value.subscribe((data : MessageInterface[]) => {
                 this.temp = data;
-
             })
         })
 
@@ -52,11 +56,10 @@ export class HomePage implements OnInit {
         this.router.navigate(['/nachfrager'])
     }
     redirectAnbieter(){
-
+        //to be done
     }
 
     clickMessage(CreatorUID: string, RideID: string){
-        console.log("geht")
         this.presentPopover(CreatorUID, RideID);
     }
 
@@ -68,10 +71,8 @@ export class HomePage implements OnInit {
                 "CreatorUID" : CreatorUID,
                 "RideID": RideID
             }
-
         });
         popover.onDidDismiss().then((dataReturned) => {
-
         })
         return await popover.present();
     }

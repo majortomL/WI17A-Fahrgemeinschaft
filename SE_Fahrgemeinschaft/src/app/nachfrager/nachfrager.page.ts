@@ -44,7 +44,7 @@ export class NachfragerPage implements OnInit {
             component: PopOverRidesComponent,
             translucent: true,
             componentProps: {
-                "RideID" : RideID
+                "rideID" : RideID
             }
 
         });
