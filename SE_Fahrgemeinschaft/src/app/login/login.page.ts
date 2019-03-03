@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from 'src/app/auth-service.service' ;
+import { AuthServiceService } from 'src/app/services/auth.service' ;
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -14,7 +15,8 @@ export class LogInPage implements OnInit {
    password: string = ""
 
   constructor(
-    private myService: AuthServiceService
+    private myService: AuthServiceService,
+    private router: Router,
   ) {
   }
 
@@ -23,6 +25,17 @@ export class LogInPage implements OnInit {
 
    async logIn(){
         this.myService.logIn(this.username, this.password)
+    }
+
+    checkLoggedIn(){
+       this.myService.checkLoggedIn();
+    }
+
+    logOut(){
+       this.myService.logOut();
+    }
+    redirectRegistration(){
+       this.router.navigate(['/registration'])
     }
 
 

@@ -1,1 +1,14 @@
+.welcome-card{
+  max-height: 35vh;
+  overflow-y: auto;
+}
 
+ion-list{
+  height: 34%;
+  overflow-y: auto;
+
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}

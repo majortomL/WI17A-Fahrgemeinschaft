@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Nachfrager</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label>Startpunkt</ion-label>
+        <ion-input [(ngModel)]="origin"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Endpunkt</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Ankunftszeitpunkt:</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
+                      [(ngModel)]="endTime"></ion-datetime>
+    </ion-item>
+
+    <ion-button (click)="search()">Suchen</ion-button>
+
+
+    <!--Hier ngfor einfügen-->
+    <ion-item *ngFor="let ride of rides">
+        <ion-card (click)="presentPopover()">
+            <ion-card-header>
+                <ion-card-subtitle></ion-card-subtitle>
+                <ion-card-title>Von {{ride.origin}} Nach {{ride.destination}} Für {{ride.endTime}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+               Preis: {{ride.price}}
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
+    <ion-button (click)="redirectHome()"></ion-button>
+
+</ion-content>

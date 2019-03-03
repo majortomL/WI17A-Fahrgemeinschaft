@@ -13,7 +13,8 @@ export const environment = {
         projectId: "db-test-fahrgemeinschaft",
         storageBucket: "db-test-fahrgemeinschaft.appspot.com",
         messagingSenderId: "951385480679"
-     }
+     },
+     UID : "sLY8qzZ5vIWhPKhCe89G2JO68JG2"
 };
 
 /*

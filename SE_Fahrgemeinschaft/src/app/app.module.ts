@@ -15,30 +15,31 @@ import {AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Testing HTTP and JSON
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 //for Firebase Config
 import { environment} from "../environments/environment";
-//for ServicesProvider
-//import { AuthServiceService } from './auth-service.service' ;
-
-
+//firebase realtimedatabase
+import { AngularFireDatabaseModule} from "@angular/fire/database";
+//for Provider auth Guard
+import { AuthTestGuard }from './guards/authtest.guard';
+import { AgbComponent } from './component/agb/agb.component';
+import { PopOverRidesComponent } from './component/popOverRides/popOverRides.component'
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, AgbComponent, PopOverRidesComponent],
+  entryComponents: [AgbComponent, PopOverRidesComponent],
   imports: [
       BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
       AngularFireModule.initializeApp(environment.fire),
       AngularFireAuthModule,
+      AngularFireDatabaseModule,
       HttpClientModule,
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+      AuthTestGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
