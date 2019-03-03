@@ -56,4 +56,11 @@ export class RTDBService {
             params: new HttpParams().append('origin', origin).append('destination','Mosbach').append('endTime',endTime)
         }))
     }
+
+    async applyRide(rideID: string){
+
+        return await (this.http.get('https://us-central1-db-test-fahrgemeinschaft.cloudfunctions.net/applyForSeat', {
+            params: new HttpParams().append('UID', environment.UID).append('RideID',rideID)
+        }))
+    }
 }

@@ -16,13 +16,10 @@
         <ion-label>Password:</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
     </ion-item>
-    <ion-button (click)="logIn()">einloggen</ion-button>
-
-    <!--just for testing-->
-    <ion-button (click)="logOut()">LogOut</ion-button>
-    <ion-button (click)="checkLoggedIn()">checkLoggedIn</ion-button>
-    <ion-button (click)="redirectRegistration()">Zur Registrierung</ion-button>
-    <!--just for testing-->
-
 
 </ion-content>
+
+<ion-footer>
+    <ion-button (click)="logIn()">einloggen</ion-button>
+    <ion-button (click)="redirectRegistration()">Zur Registrierung</ion-button>
+</ion-footer>

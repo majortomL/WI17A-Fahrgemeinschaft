@@ -22,10 +22,11 @@ import { AngularFireDatabaseModule} from "@angular/fire/database";
 //for Provider auth Guard
 import { AuthTestGuard }from './guards/authtest.guard';
 import { AgbComponent } from './component/agb/agb.component';
-import { PopOverRidesComponent } from './component/popOverRides/popOverRides.component'
+import { PopOverRidesComponent } from './component/popOverRides/popOverRides.component';
+import { PopOverMessageComponent } from './component/popOverMessage/popOverMessage.component'
 @NgModule({
-  declarations: [AppComponent, AgbComponent, PopOverRidesComponent],
-  entryComponents: [AgbComponent, PopOverRidesComponent],
+  declarations: [AppComponent, AgbComponent, PopOverRidesComponent, PopOverMessageComponent],
+  entryComponents: [AgbComponent, PopOverRidesComponent, PopOverMessageComponent],
   imports: [
       BrowserModule,
       IonicModule.forRoot(),

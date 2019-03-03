@@ -13,7 +13,7 @@ export class NachfragerPage implements OnInit {
 
     endTime: any;
     origin: any;
-    rides : JSON [];
+    rides : JSON[];
     constructor(private rtdb : RTDBService,
                 private popOverCtrl: PopoverController,
                 private router: Router) {
@@ -39,11 +39,18 @@ export class NachfragerPage implements OnInit {
         console.log("click funktioniert")
     }
 
-    async presentPopover() {
+    async presentPopover(RideID: string) {
         const popover = await this.popOverCtrl.create({
             component: PopOverRidesComponent,
-            translucent: true
+            translucent: true,
+            componentProps: {
+                "rideID" : RideID
+            }
+
         });
+        popover.onDidDismiss().then((dataReturned) => {
+
+        })
         return await popover.present();
     }
 
