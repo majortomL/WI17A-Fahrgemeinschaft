@@ -13,6 +13,11 @@ import {RTDBService} from "../../services/rtdb.service";
 })
 export class PopOverRidesComponent implements OnInit {
     @Input() rideID: string;
+    @Input() origin: string;
+    @Input() destination: string;
+    @Input() arrivalTime: string;
+    @Input() startTime: string;
+    @Input() seats: string;
 
     constructor(private http: HttpClient, private rtdb: RTDBService) {
     }

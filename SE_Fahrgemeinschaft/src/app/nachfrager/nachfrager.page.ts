@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { RTDBService } from '../services/rtdb.service';
-import { PopoverController } from '@ionic/angular';
-import { PopOverRidesComponent } from '../component/popOverRides/popOverRides.component'
-import { Router} from "@angular/router";
+import {RTDBService} from '../services/rtdb.service';
+import {PopoverController} from '@ionic/angular';
+import {PopOverRidesComponent} from '../component/popOverRides/popOverRides.component'
+import {Router} from "@angular/router";
+import {rideInterface} from "./rideInterface";
 
 @Component({
     selector: 'app-nachfrager',
@@ -13,11 +14,11 @@ export class NachfragerPage implements OnInit {
 
     endTime: any;
     origin: any;
-    rides : JSON[];
-    constructor(private rtdb : RTDBService,
+    rides: JSON[];
+
+    constructor(private rtdb: RTDBService,
                 private popOverCtrl: PopoverController,
                 private router: Router) {
-
     }
 
     ngOnInit() {
@@ -27,34 +28,34 @@ export class NachfragerPage implements OnInit {
         //hier Algorithmus aus NotePad implementieren
 
         let temp = this.endTime.split("T", 2);  //date to be added
-        temp = temp[1].slice(0,5);
+        temp = temp[1].slice(0, 5);
         await this.rtdb.searchRides(this.origin, temp).then((value) => {
-            value.subscribe((data : JSON[]) => {
-               this.rides = data;
+            value.subscribe((data: JSON[]) => {
+                this.rides = data;
             })
         })
     }
 
-    showRide(){
-        console.log("click funktioniert")
-    }
-
-    async presentPopover(RideID: string) {
+    async presentPopover(rideID: string, origin: string, destination: string, arrivalTime: string, startTime: string, seats: string) {
         const popover = await this.popOverCtrl.create({
+
             component: PopOverRidesComponent,
             translucent: true,
             componentProps: {
-                "rideID" : RideID
+                "rideID": rideID,
+                "origin": origin,
+                "destination": destination,
+                "arrivalTime": arrivalTime,
+                "startTime": startTime,
+                "seats": seats
+                //pass here more parameters to show in PopOverRide
             }
 
         });
-        popover.onDidDismiss().then((dataReturned) => {
-
-        })
         return await popover.present();
     }
 
-    redirectHome(){
+    redirectHome() {
         this.router.navigate([''])
     }
 
