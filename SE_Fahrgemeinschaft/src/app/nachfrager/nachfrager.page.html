@@ -26,7 +26,7 @@
 
     <!--Hier ngfor einfügen-->
     <ion-item *ngFor="let ride of rides">
-        <ion-card (click)="presentPopover(ride.RideID)">
+        <ion-card (click)="presentPopover(ride.RideID, ride.origin, ride.destination, ride.arrivalTime, ride.startTime, ride.seats)">
             <ion-card-header>
                 <ion-card-subtitle></ion-card-subtitle>
                 <ion-card-title>Von {{ride.origin}} Nach {{ride.destination}} Für {{ride.arrivalTime}}</ion-card-title>
@@ -34,6 +34,7 @@
 
             <ion-card-content>
                 Preis: {{ride.price}}
+                RideID: {{ride.RideID}}
             </ion-card-content>
         </ion-card>
     </ion-item>

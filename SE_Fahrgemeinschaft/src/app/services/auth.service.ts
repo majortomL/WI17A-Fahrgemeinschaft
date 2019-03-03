@@ -37,8 +37,8 @@ export class AuthServiceService {
                 /*Be
                 * checking wether somebody is logged in isn't working as expected
                 * */
-                environment.UID = res.user.uid;
-                environment.loggedIn = "true";
+                //environment.UID = res.user.uid;
+                //environment.loggedIn = "true";
                 this.router.navigate(['/'])
             }
         } catch (err) {
@@ -73,8 +73,8 @@ export class AuthServiceService {
         this.afAuth.auth.signOut()
             .then((data) => {
                 //check if done and then : (isn't working as expected)
-                environment.loggedIn = "false";
-                environment.UID = "";
+                //environment.loggedIn = "false";
+                //environment.UID = "";
             })
             .catch((err) => {
 

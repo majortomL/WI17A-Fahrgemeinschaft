@@ -1,4 +1,16 @@
-<p>
-  pop-over-rides works!
-</p>
-<ion-button (click)="Bewerben()">Bewerben</ion-button>
+<ion-grid>
+    <ion-row>
+        <ion-label>Hier kannst du dich für die Fahrt bewerben.</ion-label>
+    </ion-row>
+    <ion-row>
+        <ion-label>origin: {{origin}}</ion-label>
+        <ion-label>destination: {{destination}}</ion-label>
+        <ion-label>arrivalTime: {{arrivalTime}}</ion-label>
+        <ion-label>startTime: {{startTime}}</ion-label>
+        <ion-label>seats: {{seats}}</ion-label>
+     </ion-row>
+    <ion-row>
+        <ion-button (click)="Bewerben()">Bewerben</ion-button>
+    </ion-row>
+
+</ion-grid>
