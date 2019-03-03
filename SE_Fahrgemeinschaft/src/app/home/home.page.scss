@@ -9,6 +9,22 @@ ion-list{
 
 }
 
-body{
+ion-content{
+  --overflow: hidden;
+}
+
+ion-footer{
+  background-color: white;
+}
+
+#suc{
+  width: 48%;
+}
+
+#anb{
+  width: 48%;
+}
+
+ion-content{
   overflow: hidden;
 }

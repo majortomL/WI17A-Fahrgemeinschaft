@@ -1,43 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Profil</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button color="primary" (click)="goBack()"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Profil</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button color="secondary" (click)="goBack()"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-      <ion-row>
+    <ion-row>
         <ion-avatar slot="start" style="margin-left: 2%; margin-top: 2%;">
-          <ion-img src="https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg">
-          </ion-img>
-        </ion-avatar>          <ion-button slot="end" fill="outline" style="margin-left: 1%; margin-top: 3%;">ändern</ion-button>
-       </ion-row>
+            <ion-img src="https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg">
+            </ion-img>
+        </ion-avatar>
+        <ion-button slot="end" fill="outline" style="margin-left: 1%; margin-top: 3%;">ändern</ion-button>
+    </ion-row>
 
-  <ion-item>
-    <ion-label position="floating">Vorname</ion-label>
-    <ion-input [(ngModel)]="Profile.firstName" clearInput></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label position="floating">Vorname</ion-label>
+        <ion-input [(ngModel)]="Profile.firstName" clearInput></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input [(ngModel)]="Profile.name" clearInput></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="Profile.name" clearInput></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating" type="number">Telefonnummer</ion-label>
-    <ion-input type="tel"  [(ngModel)]="Profile.telefonnumber"></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label position="floating" type="number">Telefonnummer</ion-label>
+        <ion-input type="tel" [(ngModel)]="Profile.telefonnumber"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">E-Mail</ion-label>
-    <ion-input type="email" [(ngModel)]="Profile.email"></ion-input>
-  </ion-item>
-
-  <ion-button color="primary" (click)="updateProfile()" style="margin-top: 2%">speichern</ion-button>
-  <ion-button (click)="logOut()">LogOut</ion-button>
-
-
+    <ion-item>
+        <ion-label position="floating">E-Mail</ion-label>
+        <ion-input type="email" [(ngModel)]="Profile.email"></ion-input>
+    </ion-item>
 </ion-content>
+
+<ion-footer>
+    <ion-button float-left id="upd" (click)="updateProfile()">speichern</ion-button>
+    <ion-button float-right id="log" (click)="logOut()">LogOut</ion-button>
+</ion-footer>

@@ -1,6 +1,9 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>Nachfrager</ion-title>
+    <ion-toolbar color="primary">
+        <ion-title>Fahrt suchen</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button color="secondary" (click)="goBack()"></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -21,9 +24,6 @@
                       [(ngModel)]="endTime"></ion-datetime>
     </ion-item>
 
-    <ion-button (click)="search()">Suchen</ion-button>
-
-
     <!--Hier ngfor einfügen-->
     <ion-item *ngFor="let ride of rides">
         <ion-card (click)="presentPopover()">
@@ -33,10 +33,12 @@
             </ion-card-header>
 
             <ion-card-content>
-               Preis: {{ride.price}}
+                Preis: {{ride.price}}
             </ion-card-content>
         </ion-card>
     </ion-item>
-    <ion-button (click)="redirectHome()"></ion-button>
-
 </ion-content>
+
+<ion-footer>
+    <ion-button id="suc" (click)="search()">Suchen</ion-button>
+</ion-footer>

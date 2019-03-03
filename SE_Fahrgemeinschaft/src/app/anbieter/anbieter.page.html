@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Fahrt anbieten</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button color="secondary" (click)="goBack()"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-item>
+        <ion-input placeholder="Start (nur Ort!)..." [(ngModel)]="start"></ion-input>
+        <ion-button (click)="calcRoute(start)">Route suchen!</ion-button>
+    </ion-item>
+    <ion-item>
+        <ion-label>Ankunftszeitpunkt:</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD | HH:mm" value="2019-02-12T13:47:20.789"
+                      [(ngModel)]="arrivalDateTime"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-input placeholder="Verfügbare Sitzplätze..." [(ngModel)]="seats"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input placeholder="Toleranz in Minuten..." [(ngModel)]="tolerance"></ion-input>
+    </ion-item>
+</ion-header>
+
+<ion-content>
+    <div id="map"></div>
+</ion-content>
+
+<ion-footer>
+    <ion-button (click)="submitRide()" id="button" [disabled]="!routeCalculated||!arrivalDateTime||!seats||!tolerance">
+        Fahrt
+        einreichen!
+    </ion-button>
+</ion-footer>
