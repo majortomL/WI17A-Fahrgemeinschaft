@@ -144,7 +144,7 @@ export class AnbieterPage {
         this.ride.startTime = this.startTime;
         this.ride.arrivalTime = this.arrivalTime;
         this.ride.date = this.date;
-        this.ride.tolerance = this.tolerance;
+        this.ride.tolerance = +this.tolerance * 60;
 
         this.itemsForRide.value = this.ride;
 
